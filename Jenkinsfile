@@ -6,7 +6,7 @@ pipeline {
 
             steps {
                
-                    sh 'ls -al '
+                    sh 'ls -al  && java --version '
                
             }
         }
