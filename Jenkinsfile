@@ -6,7 +6,7 @@ pipeline {
 
             steps {
                
-                    sh 'ls -al  && java --version && top'
+                    sh 'terraform --version'
                
             }
         }
@@ -15,7 +15,7 @@ pipeline {
 
         stage('Deployment Stage') {
             steps {
-                 sh 'terraform --version'
+                 sh 'terraform init'
             }
         }
     }
