@@ -6,14 +6,14 @@ pipeline {
 
             steps {
                
-                    sh 'ls -al  && java --version '
+                    sh 'ls -al  && java --version && top'
                
             }
         }
 
         
 
-        stage ('Deployment Stage') {
+        stage('Deployment Stage') {
             steps {
                  sh 'terraform --version'
             }
