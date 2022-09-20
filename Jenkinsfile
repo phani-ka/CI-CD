@@ -1,25 +1,18 @@
 pipeline {
-    agent  { label 'maven_terraform' } 
-
-    stages {
-        stage ('Compile Stage') {
-
-            steps {
-               
-                    sh 'terraform init'
-               
-            }
-        }
-
-        
-
-        stage('Deployment Stage') {
-            steps {
-                 sh '''
-                 terraform destroy --auto-approve
-                 '''
-                 
-            }
-        }
+    agent {
+        label 'Centos7'
     }
+   tools {
+      git 'Default'
+  }
+   stages('Sci CI/CD pipeline ') {
+   
+
+     stage ('Analyzing source code and build ') {
+        steps {
+          sh 'mvn clean package '
+        }
+        
+   }
+  }
 }
