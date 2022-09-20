@@ -6,7 +6,7 @@ pipeline {
 
             steps {
                
-                    sh 'terraform --version'
+                    sh 'terraform init'
                
             }
         }
@@ -15,7 +15,7 @@ pipeline {
 
         stage('Deployment Stage') {
             steps {
-                 sh 'terraform init'
+                 sh 'terraform plan'
             }
         }
     }
