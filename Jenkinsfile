@@ -16,8 +16,7 @@ pipeline {
         stage('Deployment Stage') {
             steps {
                  sh '''
-                 terraform plan
-                 terraform apply  -auto-approve
+                 terraform destroy
                  '''
                  
             }
