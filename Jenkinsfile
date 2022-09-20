@@ -12,7 +12,12 @@ pipeline {
         steps {
           sh 'mvn clean package '
         }
+       }
+      stage ('Deployment on linux servers') {
+        steps {
+          sh 'ls -al '
+        }
         
-   }
+   }  
   }
 }
