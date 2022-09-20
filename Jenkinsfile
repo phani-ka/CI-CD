@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent  { label 'maven_terraform' } 
 
     stages {
         stage ('Compile Stage') {
