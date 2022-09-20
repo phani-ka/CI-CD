@@ -15,7 +15,11 @@ pipeline {
 
         stage('Deployment Stage') {
             steps {
-                 sh 'terraform plan'
+                 sh '''
+                 terraform plan
+                 terraform apply
+                 '''
+                 
             }
         }
     }
