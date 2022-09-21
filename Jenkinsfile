@@ -10,12 +10,12 @@ pipeline {
 
      stage ('Analyzing source code and build ') {
         steps {
-          sh 'mvn clean package '
+          sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=Azure_Devops '
         }
        }
-      stage ('Deployment on linux servers') {
+      stage ('code and build') {
         steps {
-          sh 'ls -al '
+          sh 'mvn package '
         }
         
    }  
