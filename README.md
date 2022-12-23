@@ -27,3 +27,5 @@ EOF
   
   
   swapoff -a
+  
+ # https://computingforgeeks.com/install-kubernetes-cluster-on-centos-with-kubeadm/
