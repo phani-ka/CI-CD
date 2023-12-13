@@ -1,20 +1,20 @@
 apiVersion: apps/v1
-kind: Pod
+kind: Deployment
 metadata:
-  name: myweb
+  name: myngpod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: myweb
+      app: myngpod
   template:
     metadata:
-      name: myweb
+      name: myngpod
       labels:
-        app: myweb
+        app: myngpod
     spec: 
       containers:
-        - name: myweb
+        - name: myngpod
           image: nginx:latest
           ports:
             - containerPort: 80
