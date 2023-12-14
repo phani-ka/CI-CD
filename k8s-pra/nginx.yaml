@@ -15,6 +15,6 @@ spec:
     spec: 
       containers:
         - name: myngpod
-          image: nginx:latest
+          image: 192.168.1.40:8989/appname/tomcat_new:latest
           ports:
             - containerPort: 80
