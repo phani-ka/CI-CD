@@ -15,4 +15,4 @@
       register: loopresult
     - name: print the results  from  loop tasks
       debug:
-        msg: "{{ loopresult.stdout }}"
+        msg: "{{ loopresult}}"
