@@ -1,6 +1,6 @@
 ---
 - name: checking conditions
-  hosts: web
+  hosts: "{{ webserver }}"
   tasks:
     - name: echo a value from the loop
       command: echo "{{ item  }}"
