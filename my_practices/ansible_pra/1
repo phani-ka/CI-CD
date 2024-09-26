@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+  - name: simple connection test
+    ping:
+    remote_user: rdbadmin
+  - name: run a simple command
+    shell: ls -al 
+    ignore_errors: True

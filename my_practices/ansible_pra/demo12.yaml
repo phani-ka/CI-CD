@@ -1,0 +1,18 @@
+---
+- name: checking conditions
+  hosts: web
+  tasks:
+    - name: echo a value from the loop
+      command: echo "{{ item  }}"
+      loop:
+        - 1
+        - 2
+        - 3
+        - 5
+        - 4
+        - 6
+      when: item| int > 3
+      register: loopresult
+    - name: print the results  from  loop tasks
+      debug:
+        msg: "{{ loopresult.stdout }}"

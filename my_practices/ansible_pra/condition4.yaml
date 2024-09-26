@@ -1,0 +1,11 @@
+---
+- name: play to test for hosts file in directory output
+  hosts: all
+  tasks:
+  - name: Gather directory listing from remote system
+    shell: "ls -al"
+    register: phanishell
+  - name: Alert if we find a host file
+    debug:
+      msg: "{{ phanishell }}"
+    when: '"ravi" in phanishell.stdout'

@@ -1,0 +1,16 @@
+---
+- name: web server configuration
+  hosts: all
+  become: yes
+  tasks:
+  - name: Install webserver httpd
+    yum:
+      name: httpd 
+      state: latest
+    when: ansible_os_family == "RedHat"
+  - name: Install apache2
+    apt:
+      name: apache2
+      state: latest
+    when: ansible_os_family == "Debian"
+     

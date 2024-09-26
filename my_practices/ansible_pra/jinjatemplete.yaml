@@ -1,0 +1,10 @@
+---
+- name: Jinja2 filter demo3
+  hosts: localhost
+  vars:
+    ping_value: "{{ lookup('file', '/root/hosts') }}"
+  tasks:
+    - name: display the values obtained from the file lookup
+      debug:
+        msg: "ping value is {{ ping_value }}"
+       
