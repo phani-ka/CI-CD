@@ -1,26 +1,27 @@
 pipeline {
     agent {
-        label 'Centos7'
+        label 'linux_minit'
     }
    tools {
       git 'Default'
   }
    stages('Sci CI/CD pipeline ') {
-   
-
      stage ('Analyzing source code and build ') {
         steps {
-          withSonarQubeEnv(credentialsId: '1243') {
-          sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=Azure_Devops'
+           {
+          sh 'mvn clean verify '
           }
 
         }
        }
-      stage ('code and build') {
+      stage ('code build and Code containerization') {
         steps {
-          sh 'mvn package '
+          sh '''mvn package
+            docker build -t webapp:0.$BUILD_NUMBER .
+            '''
         }
         
-   }  
+   } 
+     
   }
 }
