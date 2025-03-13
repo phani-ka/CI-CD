@@ -1,0 +1,15 @@
+---
+- name: Reboot a specific server
+  hosts: "{{ target_host }}"  # Use the variable passed as an argument
+  become: yes
+  tasks:
+    - name: Reboot the server
+      ansible.builtin.reboot:
+        reboot_timeout: 60  # Wait up to 10 minutes for the server to come back online
+        connect_timeout: 30   # Wait up to 1 minute to reconnect after reboot
+      async: 600             # Allow up to 10 minutes for the reboot task to complete
+      poll: 0                 # Don't wait for the reboot to complete immediately
+
+    - name: Wait for the server to come back online
+      ansible.builtin.wait_for_connection:
+        timeout: 600          # Wait up to 10 minutes for the server to reconnect
