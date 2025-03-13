@@ -13,3 +13,10 @@
     - name: Wait for the server to come back online
       ansible.builtin.wait_for_connection:
         timeout: 600          # Wait up to 10 minutes for the server to reconnect
+    - name: Get server uptime after reboot
+      ansible.builtin.command: uptime
+      register: uptime_result  # Store the output of the 'uptime' command
+
+    - name: Display uptime
+      ansible.builtin.debug:
+        var: uptime_result.stdout
